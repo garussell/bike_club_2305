@@ -2,7 +2,11 @@ require './spec/spec_helper'
 
 RSpec.describe Biker do
   before(:each) do
+    # bikers
     @biker = Biker.new("Kenny", 30)
+    # rides
+    @ride1 = Ride.new({name: "Walnut Creek Trail", distance: 10.7, loop: false, terrain: :hills})
+    @ride2 = Ride.new({name: "Town Lake", distance: 14.9, loop: true, terrain: :gravel})
   end
 
   describe "#initialize" do
@@ -12,6 +16,15 @@ RSpec.describe Biker do
       expect(@biker.max_distance).to eq(30)
       expect(@biker.rides).to eq({})
       expect(@biker.acceptable_terrain).to eq([])
+    end
+  end
+
+  describe "#learn_terrain!" do
+    it "can learn new terrain" do
+      @biker.learn_terrain!(:gravel)
+      @biker.learn_terrain!(:hills)
+
+      expect(@biker.acceptable_terrain).to eq([:gravel, :hills])
     end
   end
 end
