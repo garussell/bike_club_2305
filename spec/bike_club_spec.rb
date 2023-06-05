@@ -75,4 +75,10 @@ RSpec.describe BikeClub do
       expect(@bike_club.fastest_time(@ride2)).to eq(@biker)
     end
   end
+
+  describe "#eligible_for_ride?" do
+    it "can tell us which Bikers are eligible for a given Ride" do
+      # A Biker is eligible for a Ride if the terrain is acceptable to them and the total distance does not exceed their max distance.
+    end
+  end
 end
