@@ -31,6 +31,9 @@ RSpec.describe BikeClub do
   end
   describe "#logged_most_rides" do
     it "can tell us which Biker has logged the most rides" do
+      @bike_club.add_biker(@biker)
+      @bike_club.add_biker(@biker2)
+      @bike_club.add_biker(@biker3)
       # bikers know the terrain
       @biker.learn_terrain!(:gravel)
       @biker.learn_terrain!(:hills)
