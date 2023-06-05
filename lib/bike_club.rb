@@ -16,8 +16,6 @@ class BikeClub
   end
   
   def fastest_time(ride)
-    @bikers.min_by do |biker| 
-     biker.rides[ride].min
-    end
+    @bikers.min_by { |biker| biker.rides[ride].min }
   end
 end
