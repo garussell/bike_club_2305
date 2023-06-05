@@ -41,4 +41,16 @@ RSpec.describe Biker do
       })
     end
   end
+
+  describe "#personal_record(ride)" do
+    it "can record the rider's personal record for the ride" do
+      @biker.log_ride(@ride1, 92.5)
+      @biker.log_ride(@ride1, 91.1)
+      @biker.log_ride(@ride2, 60.9)
+      @biker.log_ride(@ride2, 61.6)
+
+      expect(@rider.personal_record(@ride1)).to eq(91.1)
+      expect(@rider.personal_record(@ride2)).to eq(60.9)
+    end
+  end
 end
