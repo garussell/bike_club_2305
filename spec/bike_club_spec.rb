@@ -22,9 +22,9 @@ RSpec.describe BikeClub do
 
   describe "#add_biker" do
     it "can add bikers to the club" do
-      @biker.add_biker
-      @biker2.add_biker
-      @biker3.add_biker
+      @bike_club.add_biker(@biker)
+      @bike_club.add_biker(@biker2)
+      @bike_club.add_biker(@biker3)
 
       expect(@bike_club.bikers).to eq([@biker, @biker2, @biker3])
     end
